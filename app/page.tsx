@@ -37,7 +37,7 @@ export default function Home() {
           </div>
           <div className="relative h-[400px] rounded-xl overflow-hidden shadow-2xl">
             <Image
-              src="/placeholder.svg?height=800&width=600"
+              src="/hero2.jpg?"
               alt="Laundry Service"
               fill
               className="object-cover"
@@ -80,6 +80,57 @@ export default function Home() {
               <p className="text-muted-foreground">{feature.description}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* On-Demand Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-br from-primary/5 to-purple-600/5 rounded-2xl">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+            Introducing Laundry On-Demand – Clean Clothes in 30 Minutes!
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Need fresh clothes fast? Our On-Demand service connects you with nearby launderers for quick pickup and drop-off within 30 minutes. No subscriptions, no waiting – just instant convenience.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            {[
+              {
+                title: "Request a Pickup",
+                description: "We instantly match you with a local laundromat.",
+                icon: "🚀",
+              },
+              {
+                title: "Express Cleaning",
+                description: "Your clothes are professionally cleaned and pressed.",
+                icon: "⚡",
+              },
+              {
+                title: "Rapid Drop-Off",
+                description: "Your laundry is delivered back to your doorstep in 30 minutes.",
+                icon: "🎯",
+              },
+            ].map((step, index) => (
+              <div
+                key={index}
+                className="bg-gradient-to-br from-card/50 to-card p-6 rounded-xl hover:shadow-glow transition-all duration-300"
+              >
+                <div className="text-4xl mb-4">{step.icon}</div>
+                <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+                <p className="text-muted-foreground">{step.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <Button
+            asChild
+            size="lg"
+            className="mt-8 bg-gradient-to-r from-purple-600 to-primary hover:shadow-glow transition-all"
+          >
+            <Link href="/plans#on-demand" className="flex items-center gap-2">
+              Try On-Demand Now <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
         </div>
       </section>
 

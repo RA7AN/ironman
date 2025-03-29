@@ -124,6 +124,15 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Radix UI for the accessible component primitives
 - All contributors and maintainers of the dependencies
 
+## 📄 Photo Credits
+
+### Homepage Images
+- hero1.jpg: Photo by [Eric Vö](https://unsplash.com/@eriic) on [Unsplash](https://unsplash.com/photos/woman-ironing-clothes-CJeNJMAUmpU)
+- hero2.jpg: Photo by [Waldemar](https://unsplash.com/@waldemarbrandt67w) on [Unsplash](https://unsplash.com/photos/assorted-color-dress-shirt-lot-on-clothes-hangers-cue0DuZ8cUU)
+
+### Beta Images
+- beta1.jpg: Photo by [Benjamin Salvatore](https://unsplash.com/@blue_butter) on [Unsplash](https://unsplash.com/photos/white-and-brown-clothes-hanger-prm2twhXhF8)
+
 ---
 
 Made with ❤️ by Abdul Jawwad [RA7AN] 

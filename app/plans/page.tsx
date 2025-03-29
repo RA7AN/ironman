@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Check } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
+import { ArrowRight } from "lucide-react"
 
 const plans = [
   {
@@ -94,6 +96,57 @@ export default function PlansPage() {
             </CardFooter>
           </Card>
         ))}
+      </div>
+
+      {/* On-Demand Service Card */}
+      <div className="mt-16">
+        <div className="max-w-4xl mx-auto bg-gradient-to-br from-primary/5 to-purple-600/5 rounded-2xl p-8 md:p-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+                On-Demand Laundry
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Perfect for urgent needs – pay as you go and get laundry picked up and delivered in just 30 minutes.
+              </p>
+              <ul className="space-y-4">
+                {[
+                  "Instant pickup & delivery",
+                  "Pay only per use",
+                  "No commitment",
+                  "Connected to trusted local laundromats",
+                ].map((feature, index) => (
+                  <li key={index} className="flex items-center gap-2">
+                    <span className="text-primary">✓</span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <div className="pt-4">
+                <p className="text-2xl font-bold text-primary">$5 per pickup</p>
+                <p className="text-sm text-muted-foreground">Includes pickup, cleaning, and delivery</p>
+              </div>
+              <Button
+                asChild
+                size="lg"
+                className="w-full md:w-auto bg-gradient-to-r from-purple-600 to-primary hover:shadow-glow transition-all"
+              >
+                <Link href="/signup" className="flex items-center gap-2">
+                  Book a Pickup Now <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
+            <div className="relative h-[300px] rounded-xl overflow-hidden shadow-2xl">
+              <Image
+                src="/beta1.jpg"
+                alt="On-Demand Laundry Service"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-purple-600/30"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
