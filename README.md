@@ -53,8 +53,8 @@ A modern, subscription-based laundry service web application with a stunning UI 
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/iron-man-laundry.git
-cd iron-man-laundry
+git clone https://github.com/RA7AN/ironman.git
+cd ironman
 ```
 
 2. Install dependencies:
@@ -126,4 +126,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Made with ❤️ by [Your Name] 
+Made with ❤️ by Abdul Jawwad [RA7AN] 
