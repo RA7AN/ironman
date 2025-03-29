@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, Package, RefreshCw, Truck } from "lucide-react"
 import { useState } from "react"
+import { BookingDialog } from "@/components/booking-dialog"
 
 // Mock order data
 const orders = [
@@ -42,14 +43,25 @@ const subscription = {
 
 export default function DashboardPage() {
   const [activeTab, setActiveTab] = useState("overview")
+  const [isBookingOpen, setIsBookingOpen] = useState(false)
 
   return (
     <div className="container mx-auto px-4 py-16 md:py-24">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
-          Dashboard
-        </h1>
-        <p className="text-muted-foreground mb-8">Manage your laundry orders and subscription</p>
+        <div className="flex justify-between items-start mb-8">
+          <div>
+            <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+              Dashboard
+            </h1>
+            <p className="text-muted-foreground">Manage your laundry orders and subscription</p>
+          </div>
+          <Button 
+            className="bg-gradient-to-r from-primary to-purple-600 hover:shadow-glow transition-all"
+            onClick={() => setIsBookingOpen(true)}
+          >
+            Schedule New Pickup
+          </Button>
+        </div>
 
         <Tabs defaultValue="overview" value={activeTab} onValueChange={setActiveTab} className="space-y-8">
           <TabsList className="grid grid-cols-3 md:w-[400px]">
@@ -182,12 +194,6 @@ export default function DashboardPage() {
                 </div>
               </CardContent>
             </Card>
-
-            <div className="text-center">
-              <Button className="bg-gradient-to-r from-primary to-purple-600 hover:shadow-glow transition-all">
-                Schedule New Pickup
-              </Button>
-            </div>
           </TabsContent>
 
           <TabsContent value="subscription" className="space-y-6">
@@ -243,6 +249,8 @@ export default function DashboardPage() {
             </Card>
           </TabsContent>
         </Tabs>
+
+        <BookingDialog open={isBookingOpen} onOpenChange={setIsBookingOpen} />
       </div>
     </div>
   )

@@ -11,7 +11,23 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Iron-man | On-Demand Laundry Service",
   description: "Premium laundry and ironing services with doorstep pickup and delivery",
-  generator: 'v0.dev'
+  icons: {
+    icon: [
+      {
+        url: "/favicon.svg",
+        type: "image/svg+xml",
+      },
+      {
+        url: "/favicon.ico",
+        sizes: "any",
+      }
+    ],
+    apple: {
+      url: "/apple-touch-icon.png",
+      type: "image/png",
+      sizes: "180x180"
+    },
+  }
 }
 
 export default function RootLayout({

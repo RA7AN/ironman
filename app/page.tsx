@@ -10,7 +10,7 @@ export default function Home() {
       <section className="py-20 md:py-28">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div className="space-y-6">
-            <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent leading-tight">
+            <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent leading-[1.2] md:leading-[1.2] pb-1">
               Clothes? Ironed. Delivered Like Magic, Magic.
             </h1>
             <p className="text-lg text-muted-foreground">
