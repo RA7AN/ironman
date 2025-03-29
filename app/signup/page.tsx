@@ -1,16 +1,18 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useToast } from "@/components/ui/use-toast"
 import { Loader2, Eye, EyeOff } from "lucide-react"
+import Link from "next/link"
 
 export default function SignupPage() {
+  const router = useRouter()
   const { toast } = useToast()
   const [isLoading, setIsLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
@@ -122,11 +124,24 @@ export default function SignupPage() {
 
       // Simulate API call
       setTimeout(() => {
+        // Store user data in localStorage
+        const userData = {
+          name: formData.name,
+          email: formData.email,
+          password: formData.password, // In a real app, this would be hashed
+        }
+        localStorage.setItem('userData', JSON.stringify(userData))
+
         setIsLoading(false)
         toast({
-          title: "Account created!",
-          description: "You've successfully signed up for Iron-man laundry service.",
+          title: "Successfully Registered",
+          description: "Your account has been created. Please sign in.",
+          duration: 3000,
         })
+        // Redirect to login page after a short delay
+        setTimeout(() => {
+          router.push("/login")
+        }, 2000)
       }, 1500)
     }
   }
@@ -246,7 +261,7 @@ export default function SignupPage() {
               </div>
             </form>
           </CardContent>
-          <CardFooter>
+          <CardFooter className="flex flex-col space-y-4">
             <Button
               onClick={handleSubmit}
               disabled={isLoading}
@@ -261,6 +276,12 @@ export default function SignupPage() {
                 "Sign Up"
               )}
             </Button>
+            <p className="text-sm text-gray-500 dark:text-gray-400">
+              Already have an account?{" "}
+              <Link href="/login" className="text-primary hover:underline">
+                Sign in
+              </Link>
+            </p>
           </CardFooter>
         </Card>
       </div>

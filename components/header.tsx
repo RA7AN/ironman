@@ -5,8 +5,9 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { MapPin, Menu, Shirt, X } from "lucide-react"
+import { MapPin, Menu, Shirt, X, LogIn, LogOut } from "lucide-react"
 import { usePathname } from "next/navigation"
+import { useAuth } from "@/contexts/auth-context"
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -19,8 +20,14 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
   const [location, setLocation] = useState("M4 Macbook St, Easter, EG 10001")
+  const { user, logout } = useAuth()
 
   const isActive = (path: string) => pathname === path
+
+  const handleLogout = () => {
+    logout()
+    setMobileMenuOpen(false)
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -70,12 +77,40 @@ export default function Header() {
         <div className="flex items-center gap-4">
           <ThemeToggle />
 
-          <Button
-            asChild
-            className="hidden md:inline-flex bg-gradient-to-r from-primary to-purple-600 hover:shadow-glow transition-all"
-          >
-            <Link href="/signup">Sign Up</Link>
-          </Button>
+          <div className="hidden md:flex items-center gap-2">
+            {user ? (
+              <>
+                <span className="text-sm font-medium text-primary">{user.name}</span>
+                <Button
+                  variant="outline"
+                  className="border-primary text-primary hover:bg-primary/10"
+                  onClick={handleLogout}
+                >
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Logout
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="border-primary text-primary hover:bg-primary/10"
+                >
+                  <Link href="/login">
+                    <LogIn className="h-4 w-4 mr-2" />
+                    Login
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  className="bg-gradient-to-r from-primary to-purple-600 hover:shadow-glow transition-all"
+                >
+                  <Link href="/signup">Sign Up</Link>
+                </Button>
+              </>
+            )}
+          </div>
 
           {/* Mobile Menu */}
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
@@ -115,15 +150,43 @@ export default function Header() {
                   ))}
                 </nav>
 
-                <div className="mt-auto pt-6">
-                  <Button
-                    asChild
-                    className="w-full bg-gradient-to-r from-primary to-purple-600 hover:shadow-glow transition-all"
-                  >
-                    <Link href="/signup" onClick={() => setMobileMenuOpen(false)}>
-                      Sign Up
-                    </Link>
-                  </Button>
+                <div className="mt-auto pt-6 space-y-2">
+                  {user ? (
+                    <>
+                      <div className="px-4 py-2 text-sm font-medium text-primary">
+                        {user.name}
+                      </div>
+                      <Button
+                        variant="outline"
+                        className="w-full border-primary text-primary hover:bg-primary/10"
+                        onClick={handleLogout}
+                      >
+                        <LogOut className="h-4 w-4 mr-2" />
+                        Logout
+                      </Button>
+                    </>
+                  ) : (
+                    <>
+                      <Button
+                        asChild
+                        variant="outline"
+                        className="w-full border-primary text-primary hover:bg-primary/10"
+                      >
+                        <Link href="/login" onClick={() => setMobileMenuOpen(false)}>
+                          <LogIn className="h-4 w-4 mr-2" />
+                          Login
+                        </Link>
+                      </Button>
+                      <Button
+                        asChild
+                        className="w-full bg-gradient-to-r from-primary to-purple-600 hover:shadow-glow transition-all"
+                      >
+                        <Link href="/signup" onClick={() => setMobileMenuOpen(false)}>
+                          Sign Up
+                        </Link>
+                      </Button>
+                    </>
+                  )}
                 </div>
               </div>
             </SheetContent>
