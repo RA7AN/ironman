@@ -24,36 +24,36 @@ A modern, subscription-based laundry service web application with a stunning UI 
 ## 📸 Screenshots
 
 ### Landing Page
-![Landing Page Screenshot](screenshots/landing.png)
+![Landing Page Screenshot](public/landing.png)
 *Hero section with animated CTAs and gradient effects*
 
 ### Subscription Plans
-![Subscription Plans Screenshot](screenshots/plans.png)
+![Subscription Plans Screenshot](public/subscriptionplans.png)
 *Pricing tiers with hover effects and recommended plan highlight*
 
-### Registration Page
-![Registration Page Screenshot](screenshots/register.png)
+### Sign-Up Page
+![Registration Page Screenshot](public/registration.png)
 *Clean signup form with validation*
 
 ### About Page
-![About Page Screenshot](screenshots/about.png)
+![About Page Screenshot](public/about.png)
 *Team showcase with gradient cards*
 
 ### Dynamic Island
-![Dynamic Island Screenshot](screenshots/dynamic-island.png)
+![Dynamic Island Screenshot](public/dynamicislandexpanded.png)
 *Interactive laundry status indicator*
 
-### Homepage
-![Homepage](public/homepage.png)
-
-### Plans Page
-![Plans Page](public/plans.png)
+### Booking Popup
+![Booking Popup Screenshot](public/newpickup.png)
+*Comprehensive Booking-Popup with Map view for the Current Location*
 
 ### Dashboard
-![Dashboard](public/dashboard.png)
+![Dashboard Screenshot](public/dashboard.png)
+*Detailed Dashboard page showing Overview, Orders and Subscription details*
 
-### Booking Dialog
-![Booking Dialog](public/booking.png)
+### Business & Contact Info
+![Business Info Screenshot](public/booking.png)
+*Clean Contact and Timing cards with hover effects*
 
 ## 🚀 Getting Started
 
