@@ -52,7 +52,7 @@ A modern, subscription-based laundry service web application with a stunning UI 
 *Detailed Dashboard page showing Overview, Orders and Subscription details*
 
 ### Business & Contact Info
-![Business Info Screenshot](public/booking.png)
+![Business Info Screenshot](public/businessinfo.png)
 *Clean Contact and Timing cards with hover effects*
 
 ## 🚀 Getting Started
