@@ -162,7 +162,7 @@ export default function PlansPage() {
             </div>
             <div className="relative h-[300px] rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="/hero1.jpg"
+                src="/beta1.jpg"
                 alt="On-Demand Laundry Service"
                 fill
                 className="object-cover"
