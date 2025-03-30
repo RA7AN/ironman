@@ -1,9 +1,14 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Check } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
+import { useAuth } from "@/contexts/auth-context"
+import { BookingDialog } from "@/components/booking-dialog"
+import { useState } from "react"
 
 const plans = [
   {
@@ -46,6 +51,15 @@ const plans = [
 ]
 
 export default function PlansPage() {
+  const { user } = useAuth()
+  const [isBookingOpen, setIsBookingOpen] = useState(false)
+
+  const handleBookingClick = () => {
+    if (user) {
+      setIsBookingOpen(true)
+    }
+  }
+
   return (
     <div className="container mx-auto px-4 py-16 md:py-24">
       <div className="text-center max-w-3xl mx-auto mb-16">
@@ -126,19 +140,29 @@ export default function PlansPage() {
                 <p className="text-2xl font-bold text-primary">$5 per pickup</p>
                 <p className="text-sm text-muted-foreground">Includes pickup, cleaning, and delivery</p>
               </div>
-              <Button
-                asChild
-                size="lg"
-                className="w-full md:w-auto bg-gradient-to-r from-purple-600 to-primary hover:shadow-glow transition-all"
-              >
-                <Link href="/signup" className="flex items-center gap-2">
-                  Book a Pickup Now <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
+              {user ? (
+                <Button
+                  size="lg"
+                  className="w-full md:w-auto bg-gradient-to-r from-purple-600 to-primary hover:shadow-glow transition-all"
+                  onClick={handleBookingClick}
+                >
+                  Book a Pickup Now <ArrowRight className="h-4 w-4 ml-2" />
+                </Button>
+              ) : (
+                <Button
+                  asChild
+                  size="lg"
+                  className="w-full md:w-auto bg-gradient-to-r from-purple-600 to-primary hover:shadow-glow transition-all"
+                >
+                  <Link href="/signup" className="flex items-center gap-2">
+                    Book a Pickup Now <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+              )}
             </div>
             <div className="relative h-[300px] rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="/beta1.jpg"
+                src="/hero1.jpg"
                 alt="On-Demand Laundry Service"
                 fill
                 className="object-cover"
@@ -148,6 +172,8 @@ export default function PlansPage() {
           </div>
         </div>
       </div>
+
+      <BookingDialog open={isBookingOpen} onOpenChange={setIsBookingOpen} />
     </div>
   )
 }

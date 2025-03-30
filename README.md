@@ -43,6 +43,18 @@ A modern, subscription-based laundry service web application with a stunning UI 
 ![Dynamic Island Screenshot](screenshots/dynamic-island.png)
 *Interactive laundry status indicator*
 
+### Homepage
+![Homepage](public/homepage.png)
+
+### Plans Page
+![Plans Page](public/plans.png)
+
+### Dashboard
+![Dashboard](public/dashboard.png)
+
+### Booking Dialog
+![Booking Dialog](public/booking.png)
+
 ## 🚀 Getting Started
 
 ### Prerequisites
